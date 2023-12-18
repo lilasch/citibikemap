@@ -36,23 +36,22 @@
 
       <div id="div2" style="height: 80vh; width: 48.5vw;">
 
-        <div id="heatMap" style="height: 40vh; width: 48.5vw;">
-          <h2>Heatmap of the most frequent stations traveled to from you station</h2>
+        <div id="heatMap" style="height: 35vh; width: 40vw;">
           <div class="heatmap-tooltip" id="tooltip"></div>
         <script type="text/javascript" src="heatmap.js" id="heatMap"></script>
 
         </div>
 
-        <div id="linegraph" style="height: 35vh; width: 40vw;">
-          <h2>Trips from your selected station over time</h2>
-          <script type="text/javascript" src="linegraph2.js" id="linegraph"></script>         
+        <div id="linegraph" style="height: 35vh; width: 40vw; margin-top: 30px;">
+          <script type="text/javascript" src="linegraph.js" id="linegraph"></script>         
         </div>
-       
+        
       </div>
 
     </div> 
 </body>
 <body>
+    <div style = "position: absolute; top: 100vh">
     <h3>How to use this visualization</h3>
     On the left side of our website, you see an map of New York City, as well as the East coast of New Jersey.
     Paths appear between different nodes which represent citibike stations scattered across the city. The
@@ -77,9 +76,10 @@
     data had the correct types and categories, we transformed it from a csv into a json file, which was used to create our
     visualizations. The code to transform the data from a csv to a json file can be found in this repository. The
     code to create the visualizations can be found in the following files: map13.js, heatmap.js, and linegraph.js.
-    
+    </div>
 </body>
 
 
 </html>
+
 

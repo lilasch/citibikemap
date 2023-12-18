@@ -1,5 +1,3 @@
-
-
 // Function to get the dimensions of the container
 function getContainerDimensions() {
     const container = document.getElementById("mapVis"); 
@@ -32,7 +30,7 @@ const geojson = d3.json("newY.geojson").then(function(json) {
 
     const stops = d3.csv("citibike-stops.csv").then(function(stops) {
 
-        const data = d3.json("JSdata2020_03.json").then(function(data) {
+        const data = d3.json("data5.json").then(function(data) {
 
             //  const data2 = d3.json("renamed_aggregated_202001-citibike-tripdata.json").then(function(data2) {
 
@@ -114,8 +112,8 @@ const geojson = d3.json("newY.geojson").then(function(json) {
                     hiddenElement.textContent = selectedStation;
                     d3.selectAll("circle").style("fill", "black");
                     d3.select(this).style("fill", "blue");
-                    createHeatMap(selectedStationCode, "2023", "09");
-                    createLineGraph(selectedStationCode, "2023", "09");
+                    createHeatMap(selectedStationCode, year, month);
+                    createLineGraph(selectedStationCode, year, month);
                 });
 
         
@@ -457,3 +455,4 @@ const geojson = d3.json("newY.geojson").then(function(json) {
         });
     });
 });
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+
+<body>
+  <h1>Interactive Map</h1>
+  <h2>Bikes in New York</h2>
+  <style>
+    .heatmap-rectangle {
+      cursor: pointer;
+      transition: fill-opacity 0.3s; /* Add a smooth transition effect */
+    }
+
+    .heatmap-tooltip {
+      position: absolute;
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 5px;
+      font-size: 12px;
+      pointer-events: none; /* Make the tooltip non-interactable */
+      display: none; /* Initially hide the tooltip */
+    }
+  </style>
+
+    <div id="wrapperDiv" style="display: flex; justify-content: center; align-items: center;">
+
+      <div id="mapVis" style="height: 80vh; width: 48.5vw; background-color:#decddd;">
+        <script type="text/javascript" src="map13.js" id="mapVis"></script>
+      </div>
+
+      <div id="div2" style="height: 80vh; width: 48.5vw;">
+
+        <div id="heatMap" style="height: 40vh; width: 48.5vw;">
+          <h2>Heatmap of the most frequent stations traveled to from you station</h2>
+          <div class="heatmap-tooltip" id="tooltip"></div>
+        <script type="text/javascript" src="heatmap.js" id="heatMap"></script>
+
+        </div>
+
+        <div id="linegraph" style="height: 35vh; width: 40vw;">
+          <h2>Trips from your selected station over time</h2>
+          <script type="text/javascript" src="linegraph2.js" id="linegraph"></script>         
+        </div>
+       
+      </div>
+
+    </div> 
+</body>
+<body>
+    <h3>How to use this visualization</h3>
+    On the left side of our website, you see an map of New York City, as well as the East coast of New Jersey.
+    Paths appear between different nodes which represent citibike stations scattered across the city. The
+    opacity of these paths corresponds to the frequency of travel from one to another. As the user, you can pan
+    through different days and months using the drop down menus, and select the length of the range of data you
+    would like to see. You can also select a specific station to create two additional graphs related to your
+    station of choice. On the top right, you see a heat map. On the y axis you have origin stations, and on 
+    the x axis you have destination stations. Frequency of usage is encoded in color; you can hover over each rectangle
+    to see the exact number of trips between two stations in your selected month. On the bottom right, you see a line
+    graph, which allows you to see the total number of trips taken from your selected station each month. You can 
+    hover over each point to see the precise number of trips taken that month.
+    <h3> Bikes and Covid </h3> 
+    While this visualization was largely created as an exploratory tool, we were also interested in using it to examine
+    the relationship between the Covid-19 pandemic and the usage of Citi Bikes. As New York City was the epicenter of 
+    the pandemic in the US for many parts of 2020, we wanted to see how people's responses to the pandemic affected
+    ridership; did CitiBikes outdoor alternative to public transit outweigh lockdown's affect on travel?
+    <h3>Data Processing</h3>
+    Our data comes from the Citi Bike System Data website, which provides public data on all trips taken by Citi Bike users.
+    We combed through all the data from 2013 to 2023, in the form of csvs, filtering out the values which were irrelevant to 
+    our visualizations. We then used RStudio to make the column names and data types consistent across all of the data sets.
+    Ultimately we decided to hone in on the data from 2020, as that was the most relevant to our interests. Ensuring this
+    data had the correct types and categories, we transformed it from a csv into a json file, which was used to create our
+    visualizations. The code to transform the data from a csv to a json file can be found in this repository. The
+    code to create the visualizations can be found in the following files: map13.js, heatmap.js, and linegraph.js.
+    
+</body>
+
+
+</html>
+

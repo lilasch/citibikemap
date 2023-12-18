@@ -24,7 +24,7 @@ let selectedStationCode = "null";
 var globalStation = "o";
 
 
-const geojson = d3.json("newY.geojson").then(function(json) {
+const geojson = d3.json("NewY.geojson").then(function(json) {
 
     // const geojson = d3.json("newY.geojson").then(function(json) {
 
